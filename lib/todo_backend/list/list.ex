@@ -21,4 +21,12 @@ defmodule Todo.List do
       nil -> {:error, "List item not found"}
     end
   end
+
+  def remove_list_item(list_item_id) do
+    with %{} = item <- Repo.get(Item, list_item_id) do
+      Repo.delete(item)
+    else
+      nil -> {:error, "List item not found"}
+    end
+  end
 end
