@@ -17,7 +17,7 @@ defmodule TodoWeb.List.Item do
   end
 
   input_object :change_list_item_object do
-    field :id, :uuid
+    field :id, non_null(:uuid)
     field :name, :string
     field :description, :string
     field :done, :boolean
