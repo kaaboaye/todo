@@ -7,13 +7,13 @@
 # General application configuration
 use Mix.Config
 
-config :todo_backend,
+config :todo,
   namespace: Todo,
   ecto_repos: [Todo.Repo],
   generators: [binary_id: true]
 
 # Configures the endpoint
-config :todo_backend, TodoWeb.Endpoint,
+config :todo, TodoWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "4Py11YMmwIHShbfyUmsA0sF6DITERJKBtmK14Ni5KsnBXVz1g//w6lS3PCrlKY5q",
   render_errors: [view: TodoWeb.ErrorView, accepts: ~w(json)],

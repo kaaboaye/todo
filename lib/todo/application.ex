@@ -11,7 +11,8 @@ defmodule Todo.Application do
       # Start the Ecto repository
       Todo.Repo,
       # Start the endpoint when the application starts
-      TodoWeb.Endpoint
+      TodoWeb.Endpoint,
+      {Absinthe.Subscription, [TodoWeb.Endpoint]}
       # Starts a worker by calling: Todo.Worker.start_link(arg)
       # {Todo.Worker, arg},
     ]

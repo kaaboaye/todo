@@ -1,5 +1,5 @@
 defmodule TodoWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :todo_backend
+  use Phoenix.Endpoint, otp_app: :todo
   use Absinthe.Phoenix.Endpoint
 
   socket "/socket", TodoWeb.UserSocket,
@@ -12,7 +12,7 @@ defmodule TodoWeb.Endpoint do
   # when deploying your static files in production.
   # plug Plug.Static,
   #   at: "/",
-  #   from: :todo_backend,
+  #   from: :todo,
   #   gzip: false,
   #   only: ~w(css fonts images js favicon.ico robots.txt)
 
@@ -38,7 +38,7 @@ defmodule TodoWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   # plug Plug.Session,
   #   store: :cookie,
-  #   key: "_todo_backend_key",
+  #   key: "_todo_key",
   #   signing_salt: "xxiX/XvH"
 
   plug TodoWeb.Router

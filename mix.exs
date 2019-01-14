@@ -3,7 +3,7 @@ defmodule Todo.MixProject do
 
   def project do
     [
-      app: :todo_backend,
+      app: :todo,
       version: "0.1.0",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env()),

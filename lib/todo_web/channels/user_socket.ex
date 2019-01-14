@@ -1,5 +1,8 @@
 defmodule TodoWeb.UserSocket do
   use Phoenix.Socket
+  use Absinthe.Phoenix.Socket, schema: TodoWeb.Schema
+
+  transport(:websocket, Phoenix.Transports.WebSocket)
 
   ## Channels
   # channel "room:*", TodoWeb.RoomChannel
@@ -16,6 +19,8 @@ defmodule TodoWeb.UserSocket do
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
   def connect(_params, socket, _connect_info) do
+    socket = Absinthe.Phoenix.Socket.put_options(socket, context: %{account_id: nil})
+
     {:ok, socket}
   end
 
