@@ -2,8 +2,6 @@ defmodule TodoWeb.UserSocket do
   use Phoenix.Socket
   use Absinthe.Phoenix.Socket, schema: TodoWeb.Schema
 
-  transport(:websocket, Phoenix.Transports.WebSocket)
-
   ## Channels
   # channel "room:*", TodoWeb.RoomChannel
 

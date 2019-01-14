@@ -37,4 +37,8 @@ defmodule TodoWeb.Schema do
   mutation do
     import_fields(:mutate_list)
   end
+
+  subscription do
+    import_fields(:subscribe_list_item)
+  end
 end

@@ -6,13 +6,15 @@ defmodule Todo.Application do
   use Application
 
   def start(_type, _args) do
+    import Supervisor.Spec
+
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
       Todo.Repo,
       # Start the endpoint when the application starts
       TodoWeb.Endpoint,
-      {Absinthe.Subscription, [TodoWeb.Endpoint]}
+      supervisor(Absinthe.Subscription, [TodoWeb.Endpoint])
       # Starts a worker by calling: Todo.Worker.start_link(arg)
       # {Todo.Worker, arg},
     ]
