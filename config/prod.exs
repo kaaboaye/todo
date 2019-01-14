@@ -11,7 +11,8 @@ use Mix.Config
 # before starting your production server.
 config :todo, TodoWeb.Endpoint,
   http: [:inet6, port: System.get_env("PORT") || 4000],
-  url: [host: "example.com", port: 80]
+  url: [host: "example.com", port: 80],
+  check_origin: ["//localhost", "//wojtek-todo.herokuapp.com"]
 
 # Do not print debug messages in production
 config :logger, level: :info
