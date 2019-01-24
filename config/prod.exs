@@ -15,7 +15,7 @@ config :todo, TodoWeb.Endpoint,
   check_origin: ["//localhost", "//wojtek-todo.herokuapp.com"]
 
 # Do not print debug messages in production
-config :logger, level: :info
+config :logger, level: :debug
 
 config :todo, TodoWeb.Endpoint, secret_key_base: System.get_env("SECRET_KEY_BASE")
 
