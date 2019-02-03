@@ -12,4 +12,13 @@ defmodule TodoWeb.Router do
 
     forward("/graphiql", Absinthe.Plug.GraphiQL, schema: TodoWeb.Schema)
   end
+
+  scope "/rest", TodoWeb do
+    pipe_through :api
+
+    get "/list_items", ItemListController, :index
+    post "/list_items", ItemListController, :create
+    patch "/list_items/:id", ItemListController, :change
+    delete "/list_items/:id", ItemListController, :delete
+  end
 end

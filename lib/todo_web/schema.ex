@@ -30,6 +30,8 @@ defmodule TodoWeb.Schema do
   import_types(TodoWeb.List)
   import_types(TodoWeb.List.Item)
 
+  import_types(Absinthe.Phoenix.Types)
+
   query do
     import_fields(:query_list)
   end
