@@ -19,7 +19,6 @@ defmodule TodoWeb.List.Item do
   end
 
   input_object :change_list_item_object do
-    field :id, non_null(:uuid)
     field :name, :string
     field :description, :string
     field :done, :boolean
@@ -32,12 +31,13 @@ defmodule TodoWeb.List.Item do
     end
 
     field :change_list_item, :list_item do
+      arg(:id, non_null(:uuid))
       arg(:list_item, non_null(:change_list_item_object))
       resolve(&change_list_item/3)
     end
 
     field :remove_list_item, :list_item do
-      arg(:list_item_id, non_null(:uuid))
+      arg(:id, non_null(:uuid))
       resolve(&remove_list_item/3)
     end
   end
@@ -46,12 +46,12 @@ defmodule TodoWeb.List.Item do
     List.create_list_item(attrs)
   end
 
-  defp change_list_item(_, %{list_item: attrs}, _) do
-    List.change_list_item(attrs.id, attrs)
+  defp change_list_item(_, %{id: id, list_item: attrs}, _) do
+    List.change_list_item(id, attrs)
   end
 
-  defp remove_list_item(_, %{list_item_id: list_item_id}, _) do
-    List.remove_list_item(list_item_id)
+  defp remove_list_item(_, %{id: id}, _) do
+    List.remove_list_item(id)
   end
 
   object :subscribe_list_item do

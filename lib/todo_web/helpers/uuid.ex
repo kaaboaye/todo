@@ -7,7 +7,7 @@ defmodule TodoWeb.Types.UUID do
 
   alias Ecto.UUID
 
-  scalar :uuid, name: "UUID4" do
+  scalar :uuid, name: "UUID" do
     description("""
     The `UUID4` scalar type represents UUID4 compliant string data, represented as UTF-8
     character sequences. The UUID4 type is most often used to represent unique
